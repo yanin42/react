@@ -23,10 +23,10 @@ var httpsServer = https.createServer(credentials, app);
 //app.use(express.static(path.resolve(__dirname, '..', 'build')));
 
 const db = mysql.createConnection({
-    host: '172.25.240.1',
-    user: 'bonn',
+    host: '172.21.64.1',
+    user: 'yanin',
     password: '1234',
-    database: 'testing'
+    database: 'test'
 });
 // show data
 app.get('/data', function(req,res){
@@ -64,7 +64,8 @@ app.post('/data', function(req, res){
     let data = {
         id:req.body.idkey,
         firstname:req.body.firstname,
-        lastname:req.body.lastname
+        lastname:req.body.lastname,
+        email1:req.body.email1
     };
     let sql = 'INSERT INTO users SET ?';
     db.query(sql, data, (err, result)=>{
